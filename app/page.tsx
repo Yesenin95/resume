@@ -1,95 +1,47 @@
+'use client'
 import Image from 'next/image'
-import styles from './page.module.css'
+import { Flex, Box, Text, Container, Heading, useMediaQuery } from '@chakra-ui/react'
+import NavBar from './dashbord/header/page'
+import Link from 'next/link';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+   const [isLargerThanMD] = useMediaQuery("(min-width: 768px)");
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+   return (
+      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={isLargerThanMD ? "0" : "4"} h={'100vh'}>
+         <NavBar />
+         <Heading size="xl" textAlign="center" as={'h1'} pt={isLargerThanMD ? '100px' : '50px'}>
+            Резюме
+         </Heading>
+         <Flex
+            direction={isLargerThanMD ? ['column', 'column', 'row'] : 'column'}
+            align="center"
+            justify="space-around"
+            pt={isLargerThanMD ? '70px' : '30px'}>
+            <Image src="/me.jpg" width={250} height={400} alt="Фотография" />
+            <Box
+               display="flex"
+               flexDirection="column"
+               justifyContent="space-between"
+               alignSelf="center"
+               p={4}
+               height={isLargerThanMD ? '350px' : 'auto'}
+            >
+               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Фамилия :</b> Трофимов</Text>
+               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Имя :</b> Николай</Text>
+               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Отчество :</b> Александрович</Text>
+               <Link href="tel:89879773047">
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b> 89879773047</Text>
+               </Link>
+               <Link href="tel:89393422847">
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b> 89393422847</Text>
+               </Link>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Email :</b> <Link href="mailto:nikolatrofik@gmail.com">nikolatrofik@gmail.com</Link></Text>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Дата рождения :</b> 12.04.1995</Text>
+            </Box>
+         </Flex>
+      </Container>
+   );
 }
