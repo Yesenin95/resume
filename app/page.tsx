@@ -8,7 +8,7 @@ export default function Home() {
    const [isLargerThanMD] = useMediaQuery("(min-width: 768px)");
 
    return (
-      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={isLargerThanMD ? "0" : "4"} h={'100vh'}>
+      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={isLargerThanMD ? "0" : "4"} h={isLargerThanMD ? '100vh' : 'auto'} overflowY="hidden">
          <NavBar />
          <Heading size="xl" textAlign="center" as={'h1'} pt={isLargerThanMD ? '100px' : '50px'}>
             Резюме
@@ -18,7 +18,7 @@ export default function Home() {
             align="center"
             justify="space-around"
             pt={isLargerThanMD ? '70px' : '30px'}>
-            <Image src="/me.jpg" width={250} height={400} alt="Фотография" />
+            <Image src="/me.jpg" width={isLargerThanMD ? 250 : 150} height={isLargerThanMD ? 400 : 250} alt="Фотография" />
             <Box
                display="flex"
                flexDirection="column"
@@ -36,9 +36,10 @@ export default function Home() {
                <Link href="tel:89393422847">
                   <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b> 89393422847</Text>
                </Link>
-
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Email :</b> <Link href="mailto:nikolatrofik@gmail.com">nikolatrofik@gmail.com</Link></Text>
-
+               <Text>
+                  <b style={{ fontWeight: 'bold', fontSize: '24px' }}>Email :</b>
+                  <Link href="mailto:nikolatrofik@gmail.com">nikolatrofik@gmail.com</Link>
+               </Text>
                <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Дата рождения :</b> 12.04.1995</Text>
             </Box>
          </Flex>

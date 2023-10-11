@@ -16,19 +16,27 @@ import {
    Center,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+import Link from 'next/link'; // Импортируем Link из next
 
 interface Props {
-   children: React.ReactNode
+   children: React.ReactNode,
+   url: string
 }
 
-const Links = ['Главная', 'Образование и опыт', 'Стек']
+const Links = [
+   { title: 'Главная', url: '/' },
+   { title: 'Обо мне', url: '/about' }, // Здесь '/about' - это URL для страницы "Обо мне"
+   { title: 'Образование и опыт', url: '/education' }, // Здесь '/education' - это URL для страницы "Образование и опыт"
+   { title: 'Стек', url: '/stack' }, // Здесь '/stack' - это URL для страницы "Стек"
+];
 
 const NavLink = (props: Props) => {
-   const { children } = props
+   const { children, url } = props;
 
    return (
       <Box
-         as="a"
+         as={Link} // Используем Link для перехода на другие страницы
+         href={url} // Передаем URL через props
          px={2}
          py={1}
          rounded={'md'}
@@ -36,7 +44,7 @@ const NavLink = (props: Props) => {
             textDecoration: 'none',
             bg: 'gray.700',
          }}
-         href={'#'}>
+      >
          {children}
       </Box>
    )
@@ -59,11 +67,18 @@ export default function NavBar() {
                <Center flex={1}>
                   <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }} >
                      {Links.map((link) => (
-                        <NavLink key={link}>{link}</NavLink>
+                        <NavLink key={link.title} url={link.url}>
+                           {link.title}
+                        </NavLink>
                      ))}
                   </HStack>
                </Center>
                <Flex alignItems={'center'}>
+                  <Link href="/"> {/* Ссылка на главную страницу */}
+                     <a>
+                        Резюме
+                     </a>
+                  </Link>
                   <Menu>
                      <MenuButton
                         as={Button}
@@ -73,20 +88,26 @@ export default function NavBar() {
                         minW={0}
                      />
                      <MenuList>
-                        <MenuItem>Главная</MenuItem>
-                        <MenuItem>Образование и опыт</MenuItem>
+                        {Links.map((link) => (
+                           <Link key={link.title} href={link.url}>
+                              <MenuItem>{link.title}</MenuItem>
+                           </Link>
+                        ))}
                         <MenuDivider />
-                        <MenuItem>Стек</MenuItem>
+                        <Link href="/"> {/* Ссылка на главную страницу */}
+                           <MenuItem>Главная</MenuItem>
+                        </Link>
                      </MenuList>
                   </Menu>
                </Flex>
             </Flex>
-
             {isOpen ? (
                <Box pb={4} display={{ md: 'none' }}>
                   <Stack as={'nav'} spacing={4}>
                      {Links.map((link) => (
-                        <NavLink key={link}>{link}</NavLink>
+                        <NavLink key={link.title} url={link.url}>
+                           {link.title}
+                        </NavLink>
                      ))}
                   </Stack>
                </Box>
