@@ -44,6 +44,7 @@ const NavLink = (props: Props) => {
             textDecoration: 'none',
             bg: 'gray.700',
          }}
+         
       >
          {children}
       </Box>
@@ -55,7 +56,7 @@ export default function NavBar() {
 
    return (
       <>
-         <Box px={4}>
+         <Box px={4} >
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                <IconButton
                   size={'md'}
