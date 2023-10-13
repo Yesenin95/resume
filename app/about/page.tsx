@@ -9,7 +9,7 @@ export default function About() {
       md: "10px",
    };
    return <>
-      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={padding} overflow={'auto'} h={'80vh'}>
+      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={padding} overflowY={isLargerThanMD ? "auto" : "scroll"} h="80vh">
 
          <Heading as={'h1'} p={padding}>
             Обо мне

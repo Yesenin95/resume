@@ -4,9 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Education() {
-   /* Строка `const [isLargerThanMD] = useMediaQuery("(min-width: 768px)");` использует хук
-   `useMediaQuery` из библиотеки пользовательского интерфейса Chakra, чтобы определить, превышает ли
-   ширина экрана 768 пикселей или равна ей. */
    const [isLargerThanMD] = useMediaQuery("(min-width: 768px)");
    const padding = {
       base: "10px",
@@ -14,7 +11,7 @@ export default function Education() {
       md: "15px",
    };
    return <>
-      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={padding} overflow={'auto'} h={'80vh'} display={'flex'} flexDirection={'column'} justifyContent={'space-between'}>
+      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={padding} display={'flex'} flexDirection={'column'} justifyContent={'space-between'} overflowY={isLargerThanMD ? "auto" : "scroll"} h="80vh">
          <Heading as={'h1'} textAlign={'center'} pb={'20px'} >
             Образование и опыт
          </Heading>

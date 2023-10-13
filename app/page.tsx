@@ -12,7 +12,7 @@ export default function Home() {
    };
 
    return (
-      <Container maxW={isLargerThanMD ? "1200px" : "100%"} p={padding} overflowY="hidden">
+      <Container maxW={isLargerThanMD ? "1200px" : "100%"} overflowY={isLargerThanMD ? "auto" : "scroll"} h="80vh">
          <Heading size="xl" textAlign="center" as={'h1'} p={padding}>
             Резюме
          </Heading>
