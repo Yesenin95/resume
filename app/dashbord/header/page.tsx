@@ -11,12 +11,12 @@ import {
    MenuItem,
    MenuDivider,
    useDisclosure,
-   useColorModeValue,
    Stack,
    Center,
+   Text
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import Link from 'next/link'; // Импортируем Link из next
+import Link from 'next/link';
 
 interface Props {
    children: React.ReactNode,
@@ -25,9 +25,9 @@ interface Props {
 
 const Links = [
    { title: 'Главная', url: '/' },
-   { title: 'Обо мне', url: '/about' }, // Здесь '/about' - это URL для страницы "Обо мне"
-   { title: 'Образование и опыт', url: '/education' }, // Здесь '/education' - это URL для страницы "Образование и опыт"
-   { title: 'Стек', url: '/stack' }, // Здесь '/stack' - это URL для страницы "Стек"
+   { title: 'Обо мне', url: '/about' },
+   { title: 'Образование и опыт', url: '/education' },
+   { title: 'Стек', url: '/stack' },
 ];
 
 const NavLink = (props: Props) => {
@@ -35,8 +35,8 @@ const NavLink = (props: Props) => {
 
    return (
       <Box
-         as={Link} // Используем Link для перехода на другие страницы
-         href={url} // Передаем URL через props
+         as={Link}
+         href={url}
          px={2}
          py={1}
          rounded={'md'}
@@ -55,7 +55,7 @@ export default function NavBar() {
 
    return (
       <>
-         <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+         <Box px={4}>
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                <IconButton
                   size={'md'}
@@ -74,10 +74,10 @@ export default function NavBar() {
                   </HStack>
                </Center>
                <Flex alignItems={'center'}>
-                  <Link href="/"> {/* Ссылка на главную страницу */}
-                     <a>
+                  <Link href="/">
+                     <Text fontSize={'24px'}>
                         Резюме
-                     </a>
+                     </Text>
                   </Link>
                   <Menu>
                      <MenuButton
@@ -94,7 +94,7 @@ export default function NavBar() {
                            </Link>
                         ))}
                         <MenuDivider />
-                        <Link href="/"> {/* Ссылка на главную страницу */}
+                        <Link href="/">
                            <MenuItem>Главная</MenuItem>
                         </Link>
                      </MenuList>
