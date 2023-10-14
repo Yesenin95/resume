@@ -12,39 +12,41 @@ export default function Home() {
    };
 
    return (
-      <Container maxW={isLargerThanMD ? "1200px" : "100%"} overflowY={isLargerThanMD ? "auto" : "scroll"} h="80vh">
-         <Heading size="xl" textAlign="center" as={'h1'} p={padding}>
-            Резюме
-         </Heading>
-         <Flex
-            direction={isLargerThanMD ? ['column', 'column', 'row'] : 'column'}
-            align="center"
-            justify="space-around"
-            pt={isLargerThanMD ? '70px' : '30px'}>
-            <Image src="/me.jpg" width={isLargerThanMD ? 250 : 150} height={isLargerThanMD ? 400 : 250} alt="Фотография" />
-            <Box
-               display="flex"
-               flexDirection="column"
-               justifyContent="space-between"
-               alignSelf="center"
-               p={4}
-            >
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Фамилия :</b> Трофимов</Text>
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Имя :</b> Николай</Text>
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Отчество :</b> Александрович</Text>
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b>
-                  <Link href="tel:89879773047"> 89879773047</Link>
-               </Text>
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b>
-                  <Link href="tel:89393422847">89393422847</Link>
-               </Text>
-               <Text>
-                  <b style={{ fontWeight: 'bold', fontSize: '24px' }}>Email :</b>
-                  <Link href="mailto:nikolatrofik@gmail.com">nikolatrofik@gmail.com</Link>
-               </Text>
-               <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Дата рождения :</b> 12.04.1995</Text>
-            </Box>
-         </Flex>
-      </Container >
+      <Box backgroundColor={'rgb(34, 33, 33)'} color={'white'}>
+         <Container maxW={isLargerThanMD ? "1200px" : "100%"} overflowY={isLargerThanMD ? "auto" : "scroll"} h="80vh" backgroundColor={'rgb(34, 33, 33)'} color={'white'}>
+            <Heading size="xl" textAlign="center" as={'h1'} p={padding}>
+               Резюме
+            </Heading>
+            <Flex
+               direction={isLargerThanMD ? ['column', 'column', 'row'] : 'column'}
+               align="center"
+               justify="space-around"
+               pt={isLargerThanMD ? '70px' : '30px'}>
+               <Image src="/me.jpg" width={isLargerThanMD ? 250 : 150} height={isLargerThanMD ? 400 : 250} alt="Фотография" />
+               <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="space-between"
+                  alignSelf="center"
+                  p={4}
+               >
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Фамилия :</b> Трофимов</Text>
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Имя :</b> Николай</Text>
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Отчество :</b> Александрович</Text>
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b>
+                     <Link href="tel:89879773047"> 89879773047</Link>
+                  </Text>
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Телефон :</b>
+                     <Link href="tel:89393422847">89393422847</Link>
+                  </Text>
+                  <Text>
+                     <b style={{ fontWeight: 'bold', fontSize: '24px' }}>Email :</b>
+                     <Link href="mailto:nikolatrofik@gmail.com">nikolatrofik@gmail.com</Link>
+                  </Text>
+                  <Text><b style={{ fontWeight: 'bold', fontSize: '24px' }}>Дата рождения :</b> 12.04.1995</Text>
+               </Box>
+            </Flex>
+         </Container >
+      </Box>
    );
 }
