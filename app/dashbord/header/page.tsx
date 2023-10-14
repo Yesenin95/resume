@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 import {
    Box,
    Flex,
@@ -14,8 +15,8 @@ import {
    Stack,
    Center,
    Text
-} from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+} from '@chakra-ui/react';
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
 
 interface Props {
@@ -32,6 +33,11 @@ const Links = [
 
 const NavLink = (props: Props) => {
    const { children, url } = props;
+   const { onClose } = useDisclosure();
+
+   const handleClick = () => {
+      onClose();
+   };
 
    return (
       <Box
@@ -44,9 +50,10 @@ const NavLink = (props: Props) => {
             textDecoration: 'none',
             bg: 'gray.700',
          }}
-         
       >
-         {children}
+         <div onClick={handleClick}>
+            {children}
+         </div>
       </Box>
    )
 }
@@ -56,7 +63,7 @@ export default function NavBar() {
 
    return (
       <>
-         <Box px={4} >
+         <Box px={4}>
             <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                <IconButton
                   size={'md'}
@@ -66,7 +73,7 @@ export default function NavBar() {
                   onClick={isOpen ? onClose : onOpen}
                />
                <Center flex={1}>
-                  <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }} >
+                  <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                      {Links.map((link) => (
                         <NavLink key={link.title} url={link.url}>
                            {link.title}

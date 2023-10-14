@@ -74,7 +74,7 @@ export default function Education() {
                            <Text>Дипломный проект</Text>
                            <Image src={'/images/diplom.png'} width={250} height={300} alt='Картинка' />
                            <Box display={'flex'} flexDirection={'row'}>
-                              <Link href={'https://sweet-life-ten.vercel.app/'} target={'_blank'}>Сборка</Link>/<Link href={'https://github.com/Yesenin95/SweetLife'} target={'_blank'}>GitHub</Link>
+                              <Link href={'https://diplom-bay.vercel.app/'} target={'_blank'}>Сборка</Link>/<Link href={'https://github.com/Yesenin95/diplom'} target={'_blank'}>GitHub</Link>
                            </Box>
                         </ListItem>
                      </List>
