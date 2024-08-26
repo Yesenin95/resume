@@ -72,8 +72,8 @@ export default function Education() {
                               </Box>
                            </ListItem>
                            <ListItem w={'250px'} alignItems='center' display={'flex'} flexDirection={'column'}>
-                              <Text>Приглашение на свадьбу</Text>
-                              <Image src={'/images/svadba.png'} width={250} height={300} alt='Картинка' />
+                              <Text>Приглашение на свадьбу(Заказ)</Text>
+                              <Image src={'/images/svadba2.png'} width={250} height={300} alt='Картинка' />
                               <Box display={'flex'} flexDirection={'row'}>
                                  <Link href={'https://priglashenie-na-svadby.vercel.app/'} target={'_blank'}>Сборка</Link>/<Link href={'https://github.com/Yesenin95/wedding'} target={'_blank'}>GitHub</Link>
                               </Box>
